@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: apache2
-# Recipe:: proxy_http
+# Cookbook Name:: apache2_test
+# Recipe:: mod_cgi
 #
-# Copyright 2008-2013, Opscode, Inc.
+# Copyright 2012, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,6 +17,19 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::mod_proxy'
+include_recipe 'apache2::default'
+include_recipe 'apache2::mod_cgi'
 
-apache_module 'proxy_http'
+directory node['apache_test']['cgi_dir'] do
+  action :create
+end
+
+file "#{node['apache_test']['cgi_dir']}/env" do
+  content %q{
+#!/bin/bash
+echo -e "Content-type: text/plain\n"
+/usr/bin/env
+}.strip
+  mode '0755'
+  action :create
+end
