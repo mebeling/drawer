@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: apache2
-# Recipe:: proxy_http
+# Cookbook Name:: apache2_test
+# Recipe:: mod_authz_listed_host
 #
-# Copyright 2008-2013, Opscode, Inc.
+# Copyright 2012, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,6 +17,14 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::mod_proxy'
+include_recipe 'apache2::default'
+include_recipe 'apache2::mod_authz_host'
 
-apache_module 'proxy_http'
+directory "#{node['apache_test']['root_dir']}/secure" do
+  action :create
+end
+
+web_app 'secure' do
+  template 'authz_host.conf.erb'
+  remote_host_ip node['apache_test']['remote_host_ip']
+end
