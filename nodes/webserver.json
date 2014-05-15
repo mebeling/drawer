@@ -1,3 +1,7 @@
 {
+  "nginx": {
+    "log_dir": "/var/log/nginxlog",
+    "default_site_enabled": true
+  },
   "run_list": [ "recipe[apt]", "recipe[nginx]" ]
 }
