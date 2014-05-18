@@ -1,0 +1,10 @@
+{
+  "nginx": {
+    "default_site_enabled": true
+  },
+  "run_list": [
+    "recipe[apt]",
+    "recipe[nginx]",
+    "recipe[extend]"
+  ]
+}
