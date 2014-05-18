@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Welcome to <%= node['hostname'] %></h1>
+
+<h2>List some node attributes:</h2>
+
+<p>IP: <%= node['ipaddress'] %></p>
+<p>Chef Version: <%= node['chef_packages']['chef']['version'] %></p>
+<p>Total Memory: <%= node['memory']['total'] %></p>
+
+</body>
+</html>
+
