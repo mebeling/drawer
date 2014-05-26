@@ -5,6 +5,9 @@
   "run_list": [
     "recipe[apt]",
     "recipe[nginx]",
-    "recipe[extend]"
+    "recipe[extend]",
+    "recipe[logrotate]",
+    "recipe[logrotate::global]",
+    "recipe[wrap-logrotate]"
   ]
 }
