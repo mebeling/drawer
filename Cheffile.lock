@@ -16,6 +16,13 @@ SITE
       yum (~> 3.0)
 
 GIT
+  remote: git://github.com/opscode-cookbooks/mysql.git
+  ref: master
+  sha: ae43f6cad39a9a07ad32cd9985125c2cfc0ae583
+  specs:
+    mysql (5.2.11)
+
+GIT
   remote: git://github.com/opscode-cookbooks/nginx.git
   ref: master
   sha: 1033d10ab1b723fc8372e643aaec7be563c51a04
@@ -29,6 +36,7 @@ GIT
       yum-epel (~> 0.3)
 
 DEPENDENCIES
+  mysql (>= 0)
   nginx (>= 0)
   runit (>= 0)
 

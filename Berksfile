@@ -10,7 +10,8 @@
 # This declares the default location to search for cookbooks. The key :opscode
 # tells Berkshelf to search community.opscode.com for cookbooks. For a list of
 # other valid keys, see the Berkshelf documentation
-site :opscode
+# site :opscode - This is deprecated syntax. Use the API source
+source "https://api.berkshelf.com"
 
 # Example usage
 # -------------
